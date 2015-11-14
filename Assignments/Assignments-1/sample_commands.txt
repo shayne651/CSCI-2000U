@@ -1,0 +1,8 @@
+1a) echo hello world will print out hello world. this is because echo will print the line
+b)echo {con,pre}{sent,fer}{s,ed} will print out consents consented confers confered presents presented prefers prefered. This is because the {} makes it act almost like BEDMAS in math when dealing with brackets, it combines all of the parts of the words to make new ones.
+c)date shows the date and time
+d)whoami shows the current user
+e)cal 2000 shows the calender year from the year 2000
+f)cal 9 1752 shows the month September from the year 1752
+g) bc -l is like a calculator 
+h) echo 5+4 | bc -l will calculate 5+4 and prints out 9
