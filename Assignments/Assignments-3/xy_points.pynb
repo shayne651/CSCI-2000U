@@ -1,0 +1,39 @@
+import numpy as np
+import matplotlib.pyplot as mpl
+#origional array creation
+x=[]
+y=[]
+count =0
+File = open('xy_points.dat','r')
+for line in File.read().split():
+    if (count <1000):
+        x.append(float(line))
+        count+=1
+    else:
+        y.append(float(line))
+        count+=1
+File.close()
+#the numpy array that contains all of the numbers
+npX=np.array(x)
+npY=np.array(y)
+#new numpy array that has all the values there are within 5 units of (0,5)
+finalX=npX[((npX**(2))+(npY-5)**(2))**(1/2)<5]
+finalY=npY[((npX**2)+(npY-5)**2)**(1/2)<5]
+#finding all the points that are within the bounds of x<-2 , -5<=Y<=0
+npX=npX[npX<-2]
+npY=npY[npX<-2]
+
+npX=npX[npY>=-5]
+npY=npY[npY>=-5]
+
+npX=npX[npY<=0]
+npY=npY[npY<=0]
+#plotting them all in their designated colors
+mpl.scatter(x,y,color='r')
+mpl.scatter(npX,npY)
+mpl.scatter(finalX,finalY,color ='g')
+#setting the axis 
+mpl.ylim(-10,10)
+mpl.xlim(-10,10)
+
+mpl.show()
